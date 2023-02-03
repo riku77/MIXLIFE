@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MIXLIFE</title>
+    <!-- ブラウザのタブに表示されるアイコンの設定 -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
+
+    <style>
+        header {
+            margin: 0;
+        }
+        
+        body {
+            margin: 0;
+            color: white;
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        a :visited {
+            color: white;
+        }
+        
+        .content_body {
+            width: 100%;
+            height: 100%;
+            /* background: rgb(10,5,97); */
+            /* background: linear-gradient(90deg, rgba(10,5,97,1) 2%, rgba(20,30,150,1) 34%, rgba(53,79,200,1) 72%, rgba(35,131,228,1) 100%); */
+            background: rgb(18, 18, 18);
+            position: relative;
+        }
+        
+        .content_body header {
+            position: relative;
+            /* background-color: rgb(58, 57, 57); */
+            color: white;
+            z-index: 1;
+            height: 70px;
+        }
+        
+        .header_container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .header_container h1 {
+            font-family: 'メイリオ, Meiryo, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",', sans-serif;
+            font-size: 6em;
+            width: fit-content;
+            position: absolute;
+            top: calc( 220% - .8rem);
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        
+        .content_body section {
+            height: 590px;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+        /* 円形のアプリアイコンCSS */
+        /* 中のアプリを示すイラスト */
+        
+        .circle span {
+            position: absolute;
+            display: block;
+            top: 25%;
+            width: 60px;
+            text-align: center;
+        }
+        
+        .circle {
+            position: relative;
+            display: inline-block;
+            top: 60%;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        /* schedule(ポモドーロタイマー) */
+        
+        .circle.circle1 {
+            left: -50%;
+            background: crimson;
+        }
+        /* calendar(カレンダー) */
+        
+        .circle.circle2 {
+            left: -17%;
+            background: darkcyan;
+        }
+        /* fact_check(忘れ物チェックリスト) */
+        
+        .circle.circle3 {
+            left: 16%;
+            background: darkorange;
+        }
+        /* edit_square(メモ帳) */
+        
+        .circle.circle4 {
+            left: 50%;
+            background: seagreen;
+        }
+        
+        .icon_top {
+            top: auto;
+            left: auto;
+        }
+        
+        .circle:hover {
+            filter: alpha(opacity=70);
+            -moz-opacity: 0.7;
+            opacity: 0.7;
+        }
+        /* アプリの名前をアイコンの下に表示する */
+        
+        .app_name {
+            display: inline;
+            position: relative;
+            color: white;
+            font-size: 0.5rem;
+            top: 160%;
+        }
+        
+        .app_name.memo {
+            left: -45%;
+        }
+        
+        .app_name.calendar {
+            left: -3%;
+        }
+        
+        .app_name.timer {
+            left: 27.5%;
+        }
+        
+        .app_name.checkList {
+            left: 49%;
+        }
+        /* ハンバーガーメニュー(以下メニューと呼称)CSS */
+        
+        .sample_sp_menu {
+            background-color: rgba(0, 0, 0, 0.863);
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            color: white;
+            text-align: center;
+            transition: .5s;
+        }
+        /* メニューを開いた際に画面左からメニューが出てくるアニメーション */
+        
+        .sample_sp_menu.active {
+            left: -75%;
+            opacity: 0.8;
+        }
+        
+        .sample_sp_menu ul {
+            padding-inline: 0;
+        }
+        /* メニュー内の文字列(リスト) */
+        
+        .sample_sp_menu a {
+            list-style: none;
+            text-align: left;
+            display: block;
+            margin-top: 1.5rem;
+            margin-right: 0;
+            margin-left: 62rem;
+            cursor: pointer;
+        }
+        
+        .sample_sp_menu a :hover {
+            filter: alpha(opacity=70);
+            -moz-opacity: 0.7;
+            opacity: 0.7;
+        }
+        
+        .menu_logo {
+            position: relative;
+            color: white;
+            height: -100%;
+            left: 82%;
+        }
+        
+        .menu_bt_container {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: calc( 50% - 25px);
+            left: 10px;
+            cursor: pointer;
+        }
+        
+        .menu_bt_container img {
+            width: 100%;
+            filter: invert(1);
+            position: absolute;
+        }
+        
+        .menu_close {
+            color: rgb(39, 39, 39);
+            border: solid 2px;
+            opacity: 1;
+        }
+        
+        .menu_close.active {
+            color: rgb(39, 39, 39);
+            border: solid 2px;
+            opacity: 0;
+        }
+        
+        .menu_open {
+            color: rgb(39, 39, 39);
+            border: solid 2px;
+            opacity: 0;
+        }
+        
+        .menu_open.active {
+            color: rgb(39, 39, 39);
+            border: solid 2px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content_body">
+        <header>
+            <div class="header_container">
+                <div class="menu_bt_container">
+                    <img src="images\menu.png" class="menu_close">
+                    <img src="images\close.png" class="menu_open">
+                </div>
+                <h1>MIXLIFE</h1>
+            </div>
+        </header>
+        <!-- ハンバーガーメニュー -->
+        <nav class="sample_sp_menu">
+            <img src="images\header_logo.png" class="menu_logo">
+            <ul>
+                <li><a href="Main.html">ホーム</a></li>
+                <li><a href="notePad\memo.html">メモ帳</a></li>
+                <li><a href="calender\main\calender.html">カレンダー</a></li>
+                <li><a href="pomodoroTimer\index.html">ポモドーロタイマー</a></li>
+                <li><a href="CheckList\checklist.html">忘れ物チェックリスト</a></li>
+            </ul>
+        </nav>
+        <section>
+            <div>
+                <!-- メモ帳 -->
+                <a class="circle circle1" href="NotePad\memo.html">
+                    <span><img src="images\edit_square.png" class="icon_top"></span>
+                </a>
+                <!-- カレンダー -->
+                <a class="circle circle2" href="calender\main\calender.html">
+                    <span><img src="images\calendar.png" class="icon_top"></span>
+                </a>
+                <!-- ポモドーロタイマー -->
+                <a class="circle circle3" href="PomodoroTimer\index.html">
+                    <span><img src="images\hourglass_empty.png" class="icon_top"></span>
+                </a>
+                <!-- 忘れ物チェックリスト -->
+                <a class="circle circle4" href="CheckList\checklist.html">
+                    <span><img src="images\fact_check.png" class="icon_top"></span>
+                </a>
+            </div>
+            <div class="app_name">
+                <p class="app_name memo">メモ帳</p>
+                <p class="app_name calendar">カレンダー</p>
+                <p class="app_name timer">ポモドーロタイマー</p>
+                <p class="app_name checkList">忘れ物チェックリスト</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        {
+            const menuBtContainer = document.querySelector('.menu_bt_container');
+            const sampleSpMenu = document.querySelector('.sample_sp_menu');
+            const menuClose = document.querySelector('.menu_close');
+            const menuOpen = document.querySelector('.menu_open');
+
+            menuBtContainer.addEventListener('click', () => {
+                sampleSpMenu.classList.toggle('active');
+                menuClose.classList.toggle('active');
+                menuOpen.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

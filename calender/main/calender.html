@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <<link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
+        <link href='../lib/main.css' rel='stylesheet' />
+        <script src='../lib/main.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./mamewaza_weather/mamewaza_weather.css" />
+        <title>Calender</title>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var num = 0; //textareaが1度だけ表示されるようにする
+                function txtarea() {
+
+                    var div_element = document.createElement("div");
+                    div_element.innerHTML = '<textarea style=";" id="contents" rows="5" cols="30"></textarea><br><input id="sv" type="button" value="保存" onclick="savefile()"><input id="rd" type="button" value="読取り" onclick="reader()">';
+                    var obj = document.getElementById("tody");
+                    obj.appendChild(div_element);
+
+
+                }
+                //sessionStorageに保存
+                function savefile() {
+                    var str = document.getElementById("contents").value;
+                    sessionStorage.setItem("test", str);
+                    alert("「" + str + "」を保存しました。");
+                }
+                //sessionStorageから読み取り
+                function reader() {
+                    var txt = sessionStorage.getItem("test");
+                    if (txt == null) txt = "データがありません！";
+                    if (txt == "") txt = "文字が入力されていません！";
+                    document.getElementById("contents").value = txt;
+                }
+
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+
+                    locale: 'ja',
+                    initialView: 'dayGridMonth',
+                    businessHours: true,
+                    selectable: true, //日付のクリックを可能に
+
+
+                    dayCellContent: function(e) {
+                        e.dayNumberText = e.dayNumberText.replace('日', '');
+                    },
+                    buttonText: {
+                        today: '今月に戻る',
+                        month: 'カレンダー',
+                        week: '週',
+                        day: '日',
+                        list: 'イベントリスト'
+                    },
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    },
+                    dateClick: function(jsEvent) {
+                        //txtarea();
+                        //window.open('https://calendar.google.com/calendar/u/0/r','google-calendar-event', 'width=700,height=600');
+
+                    },
+
+
+                    googleCalendarApiKey: 'AIzaSyD30iyYubO9Ic56ARgj-bewR-gp9Mw_w-I',
+                    eventSources: [{
+                        //googleカレンダー
+                        googleCalendarId: 'c_bbc1e5f5290f94449199cf7a4e38d543cb5c27b202bd9373e23570f578fd9058@group.calendar.google.com',
+                        className: 'calendar_1'
+
+                    }, {
+                        //祝日
+                        googleCalendarId: 'japanese__ja@holiday.calendar.google.com',
+                        className: 'calendar_2'
+                    }],
+                    // US Holidays
+
+                    eventClick: function(arg) {
+                        // opens events in a popup window
+                        window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+                        arg.jsEvent.preventDefault() // don't navigate in main tab
+                    },
+
+
+
+
+
+                    loading: function(bool) {
+                        document.getElementById('loading').style.display =
+                            bool ? 'block' : 'none';
+                    }
+                });
+
+                calendar.render();
+            });
+
+
+            var num = 0; //textareaが1度だけ表示されるようにする
+            function txtarea() {
+                if (num == 0) {
+                    var div_element = document.createElement("div");
+                    div_element.innerHTML = '<textarea style=";" id="contents" rows="5" cols="30"></textarea><br><input id="sv" type="button" value="保存" onclick="savefile()"><input id="rd" type="button" value="読取り" onclick="reader()">';
+                    var obj = document.getElementById("tody");
+                    obj.appendChild(div_element);
+                    num += 1;
+                }
+            }
+            //sessionStorageに保存
+            function savefile() {
+                var str = document.getElementById("contents").value;
+                sessionStorage.setItem("test", str);
+                alert("「" + str + "」を保存しました。");
+            }
+            //sessionStorageから読み取り
+            function reader() {
+                var txt = sessionStorage.getItem("test");
+                if (txt == null) txt = "データがありません！";
+                if (txt == "") txt = "文字が入力されていません！";
+                document.getElementById("contents").value = txt;
+            }
+
+            function buttonclick() {
+                window.open('https://calendar.google.com/calendar/u/0?cid=Y19iYmMxZTVmNTI5MGY5NDQ0OTE5OWNmN2E0ZTM4ZDU0M2NiNWMyN2IyMDJiZDkzNzNlMjM1NzBmNTc4ZmQ5MDU4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20', 'google-calendar-event', 'width=700,height=600');
+            }
+        </script>
+        <style>
+            /* ハンバーガーメニュー(以下メニューと呼称)CSS */
+            
+            .sample_sp_menu {
+                background-color: rgba(0, 0, 0, 0.863);
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                color: white;
+                text-align: center;
+                transition: .5s;
+            }
+            /* メニューを開いた際に画面左から出てくる */
+            
+            .sample_sp_menu.active {
+                /* left: -500px; */
+                /* left:-900px; */
+                /* left:-60rem; */
+                left: -75%;
+                opacity: 0.8;
+            }
+            
+            .sample_sp_menu ul {
+                padding-inline: 0;
+            }
+            /* メニュー内の文字列(リスト) */
+            
+            .sample_sp_menu li {
+                list-style: none;
+                text-align: left;
+                margin-top: 1.5rem;
+                margin-right: 0;
+                /* margin-left: 800px; */
+                margin-left: 62rem;
+                /* margin-left: 80%; */
+                cursor: pointer;
+            }
+            
+            .menu_bt_container {
+                width: 50px;
+                height: 50px;
+                position: relative;
+                top: calc( 50% - 25px);
+                left: 10px;
+                cursor: pointer;
+            }
+            
+            .menu_bt_container img {
+                width: 100%;
+                filter: invert(1);
+                position: absolute;
+            }
+            
+            .menu_close {
+                opacity: 1;
+            }
+            
+            .menu_close.active {
+                opacity: 0;
+            }
+            
+            .menu_open {
+                opacity: 0;
+            }
+            
+            .menu_open.active {
+                opacity: 1;
+            }
+            
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            
+            a :visited {
+                color: white;
+            }
+            
+            .content_body {
+                width: 100%;
+                height: 100%;
+            }
+            
+            .content_body header {
+                position: relative;
+                color: white;
+                z-index: 2;
+                height: 0px;
+            }
+            
+            .header_container {
+                /* width: 100%; */
+                /*height: 100%;*/
+                position: fixed;
+            }
+            
+            .header_container h1 {
+                /* font-family: 'Lato', sans-serif; */
+                /* font-family: 'Poppins', sans-serif; */
+                font-family: 'メイリオ, Meiryo, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",', sans-serif;
+                /* font-size: 94px; */
+                font-size: 6em;
+                width: fit-content;
+                position: absolute;
+                top: calc( 220% - .8rem);
+                /* top: 140px; */
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            
+            .content_body section {
+                height: 590px;
+                display: grid;
+                justify-content: center;
+                align-content: center;
+            }
+            
+            .menu_logo {
+                position: relative;
+                color: white;
+                height: -100%;
+                /* top: -10%; */
+                left: 82%;
+            }
+            
+            body {
+                margin: 40px 10px;
+                padding: 0;
+                font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                font-size: 14px;
+                background-color: #333333;
+            }
+            
+            #loading {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            
+            #calendar {
+                color: white;
+                max-width: 1100px;
+                margin: 0 auto;
+                font-family: メイリオ, Meiryo, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+            }
+            
+            #mamewaza_weather {
+                width: 1100px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            .button1 {
+                color: azure;
+                background-color: #1a252f;
+                display: block;
+                margin: 0 0 0 auto;
+                position: relative;
+                right: 200px;
+                border-color: blue;
+                width: 250px;
+                height: 30px;
+                border: medium thin;
+            }
+            
+            .button1 a:hover {
+                background: blue;
+            }
+            
+            #text {
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            p {
+                font-family: メイリオ, Meiryo, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+                font-size: 20px;
+                color: white;
+            }
+            
+            .fc-list-day-cushion {
+                background-color: darkblue;
+            }
+            
+            .fc-list-day-cushion {
+                background-color: blue;
+            }
+            
+            .fc-list-day-side-text {
+                color: black;
+            }
+            
+            .fc-list-day-text {
+                color: black;
+            }
+            
+            .fc-list-event-title {
+                color: white;
+                font-family: メイリオ, Meiryo, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+            }
+            
+            .fc-day-sun {
+                color: red;
+            }
+            
+            .fc-day-sat {
+                color: blue;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="content_body">
+        <header>
+            <div class="header_container">
+                <div class="menu_bt_container">
+                    <img src="images\menu.png" class="menu_close">
+                    <img src="images\close.png" class="menu_open">
+                </div>
+
+            </div>
+        </header>
+        <nav class="sample_sp_menu">
+            <img src="images\header_logo.png" class="menu_logo">
+            <ul>
+                <li><a href="../../Main.html">ホーム</a></li>
+                <li><a href="../../notePad/memo.html">メモ帳</a></li>
+                <li><a href="calender.html">カレンダー</a></li>
+                <li><a href="../../pomodoroTimer/index.html">ポモドーロタイマー</a></li>
+                <li><a href="">忘れ物チェックリスト</a></li>
+            </ul>
+        </nav>
+
+        <br>
+        <br>
+
+        <a><input type="button" value="イべントを追加" onclick="buttonclick()" class="button1"></a>
+        <div id='loading'>now loading...</div>
+        <div id='calendar'></div><br>
+        <br>
+
+        <br>
+        <div id="mamewaza_weather" style="width:1000px " class="mamewaza_weather"></div>
+        <script type="text/javascript" src="./mamewaza_weather/mamewaza_weather.min.js"></script>
+        <script type="text/javascript">
+            $.mamewaza_weather({
+                selector: "#mamewaza_weather",
+                region: "380000",
+                layout: "horizontal",
+                when: "7days"
+            });
+        </script>
+
+
+        <p style="text-align: center;">現在時刻は<span id="real-time"></span>です</p>
+        <script type="text/javascript">
+            function Time() {
+                var realTime = new Date();
+                var hour = realTime.getHours();
+                var minutes = realTime.getMinutes();
+                var seconds = realTime.getSeconds();
+                var text = hour + "時" + minutes + "分" + seconds + "秒";
+                document.getElementById("real-time").innerHTML = text;
+            }
+            setInterval('Time()', 1000);
+        </script>
+        <script>
+            {
+                const menuBtContainer = document.querySelector('.menu_bt_container');
+                const sampleSpMenu = document.querySelector('.sample_sp_menu');
+                const menuClose = document.querySelector('.menu_close');
+                const menuOpen = document.querySelector('.menu_open');
+
+                menuBtContainer.addEventListener('click', () => {
+                    sampleSpMenu.classList.toggle('active');
+                    menuClose.classList.toggle('active');
+                    menuOpen.classList.toggle('active');
+                });
+            }
+        </script>
+
+
+
+</body>
+
+</html>

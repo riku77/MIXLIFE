@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+.menu_logo {
+    position: relative;
+    color: white;
+    height: -100%;
+    left: 82%;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    /*ÃƒÆ’Ã‚Â£ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‚Â£ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â­ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â«ÃƒÆ’Ã‚Â¥Ãƒâ€¹Ã¢â‚¬Â Ãƒâ€šÃ‚Â¶ÃƒÆ’Ã‚Â¥Ãƒâ€šÃ‚Â¾Ãƒâ€šÃ‚Â¡*/
+    /*overflow: hidden*/
+}
+
+body {
+    background-color: #333333;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding-top: 4rem;
+    padding-left: 11rem;
+    /* position: fixed; */
+}
+
+.remove {
+    position: fixed;
+    top: 1rem;
+    right: 4.4rem;
+    background-color: #333333;
+    border-radius: 3px;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    color: #f74d3c;
+    border: 1px solid#f74d3c;
+}
+
+.remove:active {
+    transform: scale(0.98);
+}
+
+.save {
+    position: fixed;
+    top: 1rem;
+    right: 18.6rem;
+    background-color: #333333;
+    border-radius: 3px;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    color: #3636ff;
+    border: 1px solid #3636ff;
+}
+
+.save:active {
+    transform: scale(0.98);
+}
+
+.add {
+    position: fixed;
+    top: 1rem;
+    right: 11.8rem;
+    background-color: #333333;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: #43bd05;
+    border: 1px solid#43bd05;
+}
+
+.add:active {
+    transform: scale(0.98);
+}
+
+.listNote {
+    background-color: #000;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px 20px;
+    height: 426px;
+    width: 335px;
+    overflow-y: scroll;
+    color: white;
+    border: solid 2px #00AA65;
+    /*ÃƒÂ£Ã‚ÂÃ¢â‚¬Å“ÃƒÂ£Ã¢â‚¬Å¡Ã…â€™ÃƒÂ£Ã‚ÂÃ¢â‚¬Å¾ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â°ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Å“ÃƒÂ£Ã‚ÂÃ¢â‚¬Â¹ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Å¡ÃƒÂ£Ã‚ÂÃ¢â‚¬Å¡ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â¹ÃƒÂ£Ã‚ÂÃ‚Â¨ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã‚Â¡ÃƒÂ£Ã†â€™Ã¢â‚¬Â¹ÃƒÂ£Ã†â€™Ã‚Â¥ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ£Ã‚ÂÃ¢â‚¬Å¾ÃƒÂ£Ã‚ÂÃ‚Â*/
+    /* position: relative; */
+    overflow: hidden;
+}
+
+
+/*ÃƒÆ’Ã‚Â£ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‚Â£ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â­ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â«ÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â£Ãƒâ€ Ã¢â‚¬â„¢Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã‚Â£Ãƒâ€šÃ‚ÂÃƒâ€šÃ‚Â®ÃƒÆ’Ã‚Â¥ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¦Ã‚Â ÃƒÆ’Ã‚Â©ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢Ãƒâ€šÃ‚Â¤*/
+
+.listNote::-webkit-scrollbar {
+    display: none;
+}
+
+.listNote.tools {
+    background-size: 36.2px 35px;
+    background-repeat: repeat-x;
+    /* background-color: #9ec862; */
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}
+
+.listNote.tools button {
+    background-color: transparent;
+    border: none;
+    color: #666666;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    height: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.listNote.tools button :hover {
+    color: #b1b1b1;
+}
+
+.title {
+    padding-left: 20px;
+}
+
+
+/* ÃƒÂ¦Ã…Â Ã‚Â¼ÃƒÂ£Ã‚ÂÃ¢â‚¬â€ÃƒÂ£Ã‚ÂÃ…Â¸ÃƒÂ£Ã‚ÂÃ‚Â¨ÃƒÂ£Ã‚ÂÃ‚ÂÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¥Ã‚Â¥Ã‚Â¥ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¤Ã‚Â¸Ã¢â€šÂ¬ÃƒÂ§Ã…Â¾Ã‚Â¬ÃƒÂ£Ã‚ÂÃ¢â‚¬Å¾ÃƒÂ£Ã‚ÂÃ‚ÂÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Å¾ÃƒÂ£Ã‚ÂÃ‚Â¤ */
+
+.listNote.tools button :active {
+    transform: scale(0.90);
+}
+
+.listNote ul {
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    height: 268px;
+    width: 100%;
+    padding: 20px;
+    background-color: black;
+    color: #ffffff;
+}
+
+.main {
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes swingdown {
+    0% {
+        opacity: .99999;
+        transform: rotateX(90deg);
+    }
+    30% {
+        transform: rotateX(-20deg) rotateY(5deg);
+        animation-timing-function: ease-in-out;
+    }
+    65% {
+        transform: rotateX(20deg) rotateY(-3deg);
+        animation-timing-function: ease-in-out;
+    }
+    100% {
+        transform: rotateX(0);
+        animation-timing-function: ease-in-out;
+    }
+}
+
+
+/* ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â³ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã†â€™Ã¢â‚¬Â°ÃƒÂ£Ã†â€™Ã‚Â¡ÃƒÂ£Ã†â€™Ã¢â‚¬Â¹ÃƒÂ£Ã†â€™Ã‚Â¥ÃƒÂ£Ã†â€™Ã‚Â¼ */
+
+.command_window {
+    position: sticky;
+    top: 20.5rem;
+}
+
+
+/* リスト内の灰色線 */
+
+.hr_commmandWindow {
+    top: 28.1rem;
+    position: fixed;
+    width: 331px;
+    border: solid 0.5px #333333;
+}
+
+.hr_commmandWindow.top {
+    position: fixed;
+    top: 11rem;
+}
+
+.command_form {
+    width: 10px;
+    padding: 1% 100% 4% 50%;
+    /* ÃƒÂ¥Ã¢â‚¬Â¹Ã‚ÂÃƒÂ¦Ã¢â‚¬Â°Ã¢â‚¬Â¹ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ§Ã‚Â¸Ã‚Â¦ÃƒÂ¦Ã¢â‚¬ÂºÃ‚Â¸ÃƒÂ£Ã‚ÂÃ‚ÂÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ£Ã‚ÂÃ‚ÂªÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â¹ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ§Ã¢â‚¬ÂºÃ‚Â´ÃƒÂ£Ã‚ÂÃ¢â‚¬â€ÃƒÂ£Ã‚ÂÃ‚Â¦ÃƒÂ£Ã‚ÂÃ‚ÂÃƒÂ£Ã¢â‚¬Å¡Ã…â€™ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â¹ */
+    white-space: nowrap;
+    /* ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â¥ÃƒÂ¥Ã…Â Ã¢â‚¬ÂºÃƒÂ¤Ã‚Â½Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ¥Ã‚Â·Ã‚Â¦ÃƒÂ§Ã‚Â«Ã‚Â¯ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ£Ã‚ÂÃ¢â€žÂ¢ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â¹ */
+    padding-left: 21px;
+}
+
+.itemform {
+    padding-top: 0%;
+}
+
+li {
+    position: relative;
+    padding-left: 25px;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/* 項目の入力フォーム */
+
+.command_input {
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 12em;
+    margin-left: 3px;
+}
+
+
+/* チェックボックス */
+
+.checkbox {
+    transform: scale(1.2);
+}
+
+
+/* ÃƒÂ¤Ã‚Â¸Ã¢â‚¬Â¹ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ£Ã†â€™Ã¢â‚¬Â¡ÃƒÂ£Ã†â€™Ã¢â‚¬Â¢ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â©ÃƒÂ£Ã†â€™Ã‚Â«ÃƒÂ£Ã†â€™Ã‹â€ ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ§Ã‚Â«Ã‚Â ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¨Ã‚Â¨Ã‚Â­ÃƒÂ¥Ã‚Â®Ã…Â¡(ÃƒÂ¥Ã‚Â¾Ã…â€™ÃƒÂ£Ã‚ÂÃ‚Â§ÃƒÂ§Ã¢â‚¬ÂºÃ‚Â´ÃƒÂ£Ã‚ÂÃ¢â€žÂ¢) */
+
+.command_defaultMessage {
+    text-align: center;
+}
+
+textarea {
+    background-color: #000;
+    border: #000;
+}
+
+
+/*ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã‚Â¡ÃƒÂ£Ã†â€™Ã¢â‚¬Â¹ÃƒÂ£Ã†â€™Ã‚Â¥ÃƒÂ£Ã†â€™Ã‚Â¼*/
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a :visited {
+    color: white;
+}
+
+.content_body {
+    width: 100%;
+    height: 100%;
+}
+
+.content_body header {
+    position: relative;
+    color: white;
+    z-index: 2;
+    height: 0px;
+}
+
+.header_container {
+    /* width: 100%; */
+    /*height: 100%;*/
+    position: fixed;
+}
+
+.header_container h1 {
+    /* font-family: 'Lato', sans-serif; */
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'ÃƒÂ£Ã†â€™Ã‚Â¡ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¤ÃƒÂ£Ã†â€™Ã‚ÂªÃƒÂ£Ã¢â‚¬Å¡Ã‚Âª, Meiryo, "Yu Gothic", YuGothic, "ÃƒÂ£Ã†â€™Ã¢â‚¬â„¢ÃƒÂ£Ã†â€™Ã‚Â©ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â®ÃƒÂ£Ã†â€™Ã…Â½ÃƒÂ¨Ã‚Â§Ã¢â‚¬â„¢ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â´ ProN W3", "Hiragino Kaku Gothic ProN",', sans-serif;
+    /* font-size: 94px; */
+    font-size: 6em;
+    width: fit-content;
+    position: absolute;
+    top: calc( 220% - .8rem);
+    /* top: 140px; */
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.content_body section {
+    height: 590px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.sample_sp_menu {
+    background-color: rgba(0, 0, 0, 0.863);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    text-align: center;
+    transition: .5s;
+    position: fixed;
+    z-index: 1;
+}
+
+.sample_sp_menu.active {
+    left: -75%;
+    opacity: 0.8;
+    position: fixed;
+}
+
+.sample_sp_menu ul {
+    padding-inline: 0;
+}
+
+.sample_sp_menu li {
+    list-style: none;
+    text-align: left;
+    margin-top: 1.5rem;
+    margin-right: 0;
+    margin-left: 62rem;
+    cursor: pointer;
+}
+
+.sample_sp_menu li :hover {
+    filter: alpha(opacity=70);
+    width: 50px;
+    -moz-opacity: 0.7;
+    height: 50px;
+    opacity: 0.7;
+}
+
+.menu_logo {
+    position: relative;
+    color: white;
+    height: -100%;
+    position: relative;
+    left: 82%;
+}
+
+.menu_bt_container {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: calc( 50% - 25px);
+    left: -150px;
+    cursor: pointer;
+    bottom: 55px;
+}
+
+.menu_bt_container img {
+    width: 100%;
+    filter: invert(1);
+    position: absolute;
+}
+
+.menu_close {
+    color: rgb(39, 39, 39);
+    opacity: 1;
+    border: solid 2px;
+}
+
+.menu_close.active {
+    color: rgb(39, 39, 39);
+    opacity: 0;
+    border: solid 2px;
+}
+
+.menu_open {
+    color: rgb(39, 39, 39);
+    opacity: 0;
+    border: solid 2px;
+}
+
+.menu_open.active {
+    color: rgb(39, 39, 39);
+    opacity: 1;
+    border: solid 2px;
+}

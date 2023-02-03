@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <!--
+        viewport参考サイト:
+        https://qiita.com/ryounagaoka/items/045b2808a5ed43f96607
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></link>
+    <title>ポモドーロタイマー</title>
+    <!-- ブラウザのタブに表示されるアイコンの設定 -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
+</head>
+
+<body>
+    <script src="js/jsframe.js"></script>
+
+    <!-- ハンバーガーメニュー : 始まり -->
+    <div class="content_body">
+        <header>
+            <div class="header_container">
+                <div class="menu_bt_container">
+                    <img src="img/menu.png" class="menu_close">
+                    <img src="img/close.png" class="menu_open">
+                </div>
+            </div>
+        </header>
+        <nav class="sample_sp_menu">
+            <img src="../images\header_logo.png" class="menu_logo">
+            <ul>
+                <li><a href="../Main.html">ホーム</a></li>
+                <li><a href="../notePad/memo.html">メモ帳</a></li>
+                <li><a href="../calender/main/calender.html">カレンダー</a></li>
+                <li><a href="../pomodoroTimer/index.html">ポモドーロタイマー</a></li>
+                <li><a href="../CheckList/checklist.html">忘れ物チェックリスト</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- ハンバーガーメニュー : 終わり -->
+
+    <div class="container">
+        <audio id="js-audio" src="audio/school_bell.mp3"></audio>
+
+        <div id="js-rest-popup" class="popup">
+            <p>お疲れ様です！</p>
+            <p id="html-timelimit"></p>
+            <p>休憩しましょう</p>
+
+            <p id="js-total-time"></p>
+
+            <div class="btn-flex">
+                <button id="js-rest-btn" class="popup-btn" type="button">休憩する</button>
+                <button id="js-finish-btn" class="popup-btn" type="button">終了する</button>
+            </div>
+
+        </div>
+
+        <div id="js-restart-popup" class="popup">
+
+            <p>休憩時間終了！<br />勉強を再開します！</p>
+
+            <div class="btn-flex-center">
+                <button id="js-restart-btn" class="popup-btn" type="button">再開する</button>
+
+
+            </div>
+
+        </div>
+
+        <div class="Circle">
+            <div id="js-count-timer" class="count-timer">25:00</div>
+            <p id="js-comment">Click Start</p>
+        </div>
+
+        <img src="img/Circle2.png" />
+
+
+
+        <div class="progressCircle">
+            <svg>
+
+                <circle cx="50" cy="50" r="200" class="circle_class"id =circle_id />
+
+            </svg>
+
+        </div>
+
+
+
+
+        <!-- <div class="waku_class"id=waku_id></div> -->
+
+        <br>
+        <!--カウント開始、カウント停止、カウントリセットを行っているhtml要素-->
+        <button id="js-start" class="timer-btn start-btn" type="button">Start</button>
+        <button id="js-stop" class="timer-btn stop-btn" type="button">Stop</button>
+        <button id="js-reset" class="timer-btn reset-btn" type="button">Reset</button>
+        <button id="js-config" class="timer-btn config-btn" type="button">config</button>
+
+
+
+        <form name="timer">
+            <input type="text" id="test" value="25" placeholder="分" class="timer_hide">
+            <input type="button" class="start_css" value="▶">
+            <br>
+            <input type="text" value="5" placeholder="休憩時間" class="timer_hide">
+            <input type="button" class="start_css" value="▶">
+        </form>
+        <div id="text">現在　0　ポモドーロ</div>
+
+    </div>
+
+    <!--jsファイルの読み込み。これ記述しないと関数とか実行できない-->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
